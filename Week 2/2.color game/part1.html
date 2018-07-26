@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Color Guessing Game</title> 
+</head>
+<body onload="do_game()">
+	<script>
+		var color=["AntiqueWhite","aqua","black","blue","brown","cyan","gold","gray","greenyellow","hotpink","indigo","magneta","orange","red","white","yellow"];
+		var finished=false;
+		var guesses=0;
+		var random_color;
+		var target;
+		var guess_input_text;
+		function do_game()
+		{
+			target=Math.floor(Math.random()*16);
+			random_color=color[target];
+			alert(random_color);
+			while(!finished)
+			{
+				guess_input_text=prompt("I am thinking of one of these colors:\n\nAntiqueWhite,aqua,black,blue,brown,cyan,gold,gray,greenyellow,hotpink,indigo,magneta,orange,red,white,yellow\n\nWhat color am I Thinking of?");
+				guesses++;
+				finished=check_guess();
+			}
+		}
+		function check_guess()
+		{
+			if(guess_input_text==random_color)
+			{
+				alert("Congratulation!You have guessed the color!\n\nIt took you "+guesses+" guesses to finish the game!");
+				return true;
+			}
+			return false;
+
+	
+		}
+		
+	</script>
+</body>
+</html>
